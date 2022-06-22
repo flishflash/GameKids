@@ -1,7 +1,8 @@
 ﻿  Application.cpp
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Collider.cpp
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModulePlayer.h(41,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   Enemy.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -19,11 +20,11 @@ C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_
           [
               TYPE=int
           ]
-  Globals.cpp
   Main.cpp
   Module.cpp
   ModuleAudio.cpp
   ModuleCollisions.cpp
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   ModuleEnemies.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -31,21 +32,24 @@ C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleFadeToBlack.cpp(78,19): warning C4244: '=': conversión de 'float' a 'Uint32'; posible pérdida de datos
   ModuleFonts.cpp
   ModuleInput.cpp
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   ModuleParticles.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   ModulePlayer.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModulePlayer.h(41,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   ModuleRender.cpp
-C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleRender.cpp(104,34): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleRender.cpp(105,34): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleRender.cpp(142,34): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleRender.cpp(143,34): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModulePlayer.h(41,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleRender.cpp(108,34): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleRender.cpp(109,34): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
   ModuleTextures.cpp
   ModuleWindow.cpp
-  Generando código...
-  Compilando...
   Particle.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
@@ -53,12 +57,15 @@ C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_
   Path.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...
+  Compilando...
   SceneIntro.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   SceneLevel1.cpp
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
 C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModulePlayer.h(41,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
   Generando código...
-  LINK : no se encontró C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Debug\Project_9_Solution.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   Project_9_Solution.vcxproj -> C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Debug\Project_9_Solution.exe

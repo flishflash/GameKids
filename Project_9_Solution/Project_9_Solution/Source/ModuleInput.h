@@ -2,10 +2,13 @@
 #define __MODULE_INPUT_H__
 
 #include "Module.h"
+#include <math.h>
 #include "Globals.h"
 #include "SDL/include/SDL_scancode.h"
+#include "SDL/include/SDL_gamecontroller.h"
 
 #define MAX_KEYS 256
+#define MAX_CONTROLLERS 8
 
 enum Key_State
 {
@@ -13,6 +16,11 @@ enum Key_State
 	KEY_DOWN,
 	KEY_REPEAT,
 	KEY_UP
+};
+
+struct GameController {
+	float j1_x, j1_y, j2_x, j2_y, LT, RT;
+	Key_State buttons[SDL_CONTROLLER_BUTTON_MAX];
 };
 
 class ModuleInput : public Module
@@ -36,9 +44,23 @@ public:
 	// Uninitializes the SDL system for input detection
 	bool CleanUp() override;
 
+	Application* App;
+
+	float reduce_val(float v1, float min, float clamp_to) {
+		float sign = v1 / fabs(v1);
+		float reduced = v1 - ((fabs(v1) > min) ? sign * min : v1);
+		float to_1 = reduced / (float)(SDL_MAX_SINT16);
+		float reclamped = to_1 * clamp_to;
+		return reclamped;
+	}
+
 public:
 	// An array to fill in the state of all the keyboard keys
 	Key_State keys[MAX_KEYS] = { KEY_IDLE };
+	SDL_GameController* sdl_controllers[MAX_CONTROLLERS];
+	GameController controllers[MAX_CONTROLLERS];
+	int num_controllers;
+
 };
 
 #endif // __ModuleInput_H__

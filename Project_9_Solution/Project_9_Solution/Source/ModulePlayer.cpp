@@ -14,6 +14,9 @@
 
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
+
+	cameraGameplay = { 135, 3800, RES_WIDTH, RES_HEIGHT };
+
 	// idle animation - just one sprite
 	idleAnim.PushBack({ 66, 1, 32, 14 });
 

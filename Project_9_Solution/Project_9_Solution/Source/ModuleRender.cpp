@@ -5,6 +5,7 @@
 #include "ModuleWindow.h"
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
+#include "ModulePlayer.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -36,7 +37,8 @@ bool ModuleRender::Init()
 		LOG("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
-
+	SDL_RenderSetScale(renderer, 1, 1);
+	SDL_RenderSetLogicalSize(renderer, RES_WIDTH, RES_HEIGHT);
 	return ret;
 }
 
@@ -48,6 +50,8 @@ Update_Status ModuleRender::PreUpdate()
 
 	//Clear rendering target
 	SDL_RenderClear(renderer);
+
+	SDL_RenderSetViewport(renderer, new SDL_Rect({ SCREEN_WIDTH / 9 , 0, RES_WIDTH, RES_HEIGHT }));
 
 	return Update_Status::UPDATE_CONTINUE;
 }
@@ -135,13 +139,10 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 
-	SDL_Rect dstRect { rect.x * SCREEN_SIZE, rect.y * SCREEN_SIZE, rect.w * SCREEN_SIZE, rect.h * SCREEN_SIZE };
-
-	if (useCamera)
-	{
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
-	}
+	SDL_Rect dstRect{
+		(int)(-App->player->cameraGameplay.x * speed) + rect.x,
+		(int)(-App->player->cameraGameplay.y * speed) + rect.y,
+		rect.w, rect.h };
 
 	if (SDL_RenderFillRect(renderer, &dstRect) != 0)
 	{
