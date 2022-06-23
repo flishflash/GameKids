@@ -8,7 +8,7 @@ Enemy_Mech::Enemy_Mech(int x, int y) : Enemy(x, y)
 	front.PushBack({5, 108, 31, 29});
 	front.PushBack({4, 141, 31, 29});
 	front.PushBack({38, 108, 31, 29});
-	front.speed = 0.1f;
+	front.speed= 0.1f;
 	//front.pingpong = true;
 
 	back.PushBack({170, 108, 31, 29});

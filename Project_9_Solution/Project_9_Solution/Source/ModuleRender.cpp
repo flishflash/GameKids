@@ -103,12 +103,6 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 
 	SDL_Rect dstRect{ x * SCREEN_SIZE, y * SCREEN_SIZE, 0, 0 };
 
-	if (useCamera)
-	{
-		dstRect.x -= (camera.x * speed);
-		dstRect.y -= (camera.y * speed);
-	}
-
 	if (section != nullptr)
 	{
 		dstRect.w = section->w;

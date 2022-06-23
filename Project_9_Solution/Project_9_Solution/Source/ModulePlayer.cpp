@@ -71,7 +71,7 @@ bool ModulePlayer::Start()
 Update_Status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-	App->player->position.x += 1;
+	App->player->position.y += 1;
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
@@ -143,7 +143,7 @@ Update_Status ModulePlayer::PostUpdate()
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
-	if (c1 == collider && destroyed == false)
+	if (c1 == collider && destroyed == false && c2->type != Collider::Type::WALL)
 	{
 		App->particles->AddParticle(App->particles->explosion, position.x, position.y, Collider::Type::NONE, 9);
 		App->particles->AddParticle(App->particles->explosion, position.x + 8, position.y + 11, Collider::Type::NONE, 14);
@@ -157,6 +157,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		destroyed = true;
 	}
 
+	if (c2->type == Collider::Type::WALL)
+	{
+		App->player->position.y -= 1;
+	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 	{
 		score += 23;
