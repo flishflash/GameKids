@@ -51,7 +51,7 @@ Update_Status ModuleRender::PreUpdate()
 	//Clear rendering target
 	SDL_RenderClear(renderer);
 
-	SDL_RenderSetViewport(renderer, new SDL_Rect({ SCREEN_WIDTH / 9 , 0, RES_WIDTH, RES_HEIGHT }));
+	SDL_RenderSetViewport(renderer, new SDL_Rect({ 0 , 0, RES_WIDTH, RES_HEIGHT }));
 
 	return Update_Status::UPDATE_CONTINUE;
 }
