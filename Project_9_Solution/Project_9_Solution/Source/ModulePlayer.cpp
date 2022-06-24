@@ -15,22 +15,26 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 
+<<<<<<< HEAD
 	fall = true;
 	fallCD = 20;
 	jumponce = 0;
+=======
+	cameraGameplay = { 135, 3800, RES_WIDTH, RES_HEIGHT };
+>>>>>>> parent of 9557690 (jump)
 
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 0, 0, 70, 70 });
+	idleAnim.PushBack({ 66, 1, 32, 14 });
 
 	// move upwards
-	upAnim.PushBack({ 0, 0, 70, 70 });
-	upAnim.PushBack({ 0, 0, 70, 70 });
+	upAnim.PushBack({ 100, 1, 32, 14 });
+	upAnim.PushBack({ 132, 0, 32, 14 });
 	upAnim.loop = false;
 	upAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 0, 0, 70, 70 });
-	downAnim.PushBack({ 0, 0, 70, 70 });
+	downAnim.PushBack({ 33, 1, 32, 14 });
+	downAnim.PushBack({ 0, 1, 32, 14 });
 	downAnim.loop = false;
 	downAnim.speed = 0.1f;
 }
@@ -59,7 +63,7 @@ bool ModulePlayer::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 70, 70 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
@@ -75,6 +79,7 @@ bool ModulePlayer::Start()
 Update_Status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
+<<<<<<< HEAD
 	if(fall)
 		App->player->position.y += 2;
 	if (App->player->position.x > 500)
@@ -106,6 +111,9 @@ Update_Status ModulePlayer::Update()
 		fallCD--;
 	}
 
+=======
+	App->player->position.y += 1;
+>>>>>>> parent of 9557690 (jump)
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
@@ -126,12 +134,14 @@ Update_Status ModulePlayer::Update()
 			currentAnimation = &downAnim;
 		}
 	}
-	if (jumponce == 0)
+
+	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
-		if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_DOWN)
+		position.y -= speed;
+		if (currentAnimation != &upAnim)
 		{
-			jumponce++;
-			fall = false;
+			upAnim.Reset();
+			currentAnimation = &upAnim;
 		}
 	}
 
@@ -191,8 +201,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c2->type == Collider::Type::WALL)
 	{
-		App->player->position.y -= 2;
-		jumponce = 0;
+		App->player->position.y -= 1;
 	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 	{
