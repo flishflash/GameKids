@@ -25,28 +25,27 @@ bool SceneLevel1::Start()
 
 	bool ret = true;
 
+	App->player->Enable();
+
 	bgTexture = App->textures->Load("Assets/Sprites/background.png");
 	App->audio->PlayMusic("Assets/Music/stage1.ogg", 1.0f);
 
 	//Bottomside collider
-	App->collisions->AddCollider({ 0, 530, 500, 10 }, Collider::Type::WALL);
-
-	//First two columns colliders
+	App->collisions->AddCollider({ 0, 530, 1280, 10 }, Collider::Type::WALL);
 
 	// Enemies ---
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
-
-	App->player->Enable();
 	App->enemies->Enable();
 
+
+	//camera
+	App->player->cameraGameplay.x = 0;
+	App->player->cameraGameplay.y = 0;
 	return ret;
 }
 
 Update_Status SceneLevel1::Update()
 {
-	App->render->camera.x += 3;
 
 	return Update_Status::UPDATE_CONTINUE;
 }

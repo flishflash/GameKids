@@ -58,22 +58,6 @@ Update_Status ModuleRender::PreUpdate()
 
 Update_Status ModuleRender::Update()
 {
-	//Handle positive vertical movement
-	if (App->input->keys[SDL_SCANCODE_UP] == KEY_REPEAT)
-		camera.y -= cameraSpeed;
-
-	//Handle negative vertical movement
-	if (App->input->keys[SDL_SCANCODE_DOWN] == KEY_REPEAT)
-		camera.y += cameraSpeed;
-
-	if (App->input->keys[SDL_SCANCODE_LEFT] == KEY_REPEAT)
-		camera.x -= cameraSpeed;
-	if (camera.x < 0) camera.x = 0;
-
-	if (App->input->keys[SDL_SCANCODE_RIGHT] == KEY_REPEAT)
-		camera.x += cameraSpeed;
-
-
 	return Update_Status::UPDATE_CONTINUE;
 }
 
@@ -114,6 +98,12 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, const SDL_Rect* sect
 		SDL_QueryTexture(texture, nullptr, nullptr, &dstRect.w, &dstRect.h);
 	}
 
+	if (useCamera)
+	{
+		dstRect.x -= (App->player->cameraGameplay.x * speed);
+		dstRect.y -= (App->player->cameraGameplay.y * speed);
+	}
+
 	dstRect.w *= SCREEN_SIZE;
 	dstRect.h *= SCREEN_SIZE;
 
@@ -136,7 +126,7 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 	SDL_Rect dstRect{
 		(int)(-App->player->cameraGameplay.x * speed) + rect.x,
 		(int)(-App->player->cameraGameplay.y * speed) + rect.y,
-		rect.w, rect.h };
+		rect.w, rect.h};
 
 	if (SDL_RenderFillRect(renderer, &dstRect) != 0)
 	{

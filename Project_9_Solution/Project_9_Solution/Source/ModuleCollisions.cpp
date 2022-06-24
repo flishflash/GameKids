@@ -2,8 +2,8 @@
 
 #include "Application.h"
 
-#include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ModuleRender.h"
 #include "SDL/include/SDL_Scancode.h"
 
 ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)

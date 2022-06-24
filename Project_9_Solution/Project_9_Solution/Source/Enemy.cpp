@@ -3,8 +3,8 @@
 #include "Application.h"
 #include "ModuleCollisions.h"
 #include "ModuleParticles.h"
-#include "ModuleAudio.h"
 #include "ModuleRender.h"
+#include "ModuleAudio.h"
 
 Enemy::Enemy(int x, int y) : position(x, y)
 {

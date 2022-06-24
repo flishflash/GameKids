@@ -2,8 +2,8 @@
 
 #include "Application.h"
 #include "ModuleTextures.h"
-#include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "ModuleInput.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleCollisions.h"
@@ -15,10 +15,10 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 
-	cameraGameplay = { 135, 3800, RES_WIDTH, RES_HEIGHT };
 	fall = true;
 	fallCD = 20;
 	jumponce = 0;
+
 	// idle animation - just one sprite
 	idleAnim.PushBack({ 0, 0, 70, 70 });
 
@@ -45,6 +45,8 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 
 	bool ret = true;
+
+	cameraGameplay = { 135, 3800, RES_WIDTH, RES_HEIGHT };
 
 	texture = App->textures->Load("Assets/Sprites/ship.png");
 	currentAnimation = &idleAnim;
@@ -75,6 +77,21 @@ Update_Status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 	if(fall)
 		App->player->position.y += 2;
+	if (App->player->position.x > 500)
+	{
+		if (position.x - cameraGameplay.x < 500)
+		{
+			cameraGameplay.x -= speed;
+		}
+		if (position.x - cameraGameplay.x > 700)
+		{
+			cameraGameplay.x += speed;
+		}
+		if (position.y - cameraGameplay.y < 240)
+		{
+			cameraGameplay.y -= speed;
+		}
+	}
 
 	if (!fall)
 	{

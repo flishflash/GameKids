@@ -2,7 +2,7 @@
 
 #include "Application.h"
 
-#include "ModuleRender.h"
+#include "ModulePlayer.h"
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 
@@ -119,7 +119,7 @@ void ModuleEnemies::HandleEnemiesSpawn()
 		if (spawnQueue[i].type != Enemy_Type::NO_TYPE)
 		{
 			// Spawn a new enemy if the screen has reached a spawn position
-			if (spawnQueue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
+			if (spawnQueue[i].x * SCREEN_SIZE < App->player->cameraGameplay.x + (App->player->cameraGameplay.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				LOG("Spawning enemy at %d", spawnQueue[i].x * SCREEN_SIZE);
 
@@ -138,7 +138,7 @@ void ModuleEnemies::HandleEnemiesDespawn()
 		if (enemies[i] != nullptr)
 		{
 			// Delete the enemy when it has reached the end of the screen
-			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
+			if (enemies[i]->position.x * SCREEN_SIZE < (App->player->cameraGameplay.x) - SPAWN_MARGIN)
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
 
