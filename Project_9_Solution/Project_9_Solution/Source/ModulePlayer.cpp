@@ -16,7 +16,7 @@ ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 
 	fall = true;
-	fallCD = 20;
+	fallCD = 30;
 	jumponce = 1;
 
 	// idle animation - just one sprite
@@ -77,25 +77,25 @@ Update_Status ModulePlayer::Update()
 	// Moving the player with the camera scroll
 
 	if(fall)
-		App->player->position.y += 2;
+		App->player->position.y += 3;
 
 	if (App->player->position.x > 500)
 	{
 		if (position.x - cameraGameplay.x < 500)
 		{
-			cameraGameplay.x -= speed;
+			cameraGameplay.x -= 2;
 		}
 		if (position.x - cameraGameplay.x > 700)
 		{
-			cameraGameplay.x += speed;
+			cameraGameplay.x += 2;
 		}
 		if (position.y - cameraGameplay.y < 240)
 		{
-			cameraGameplay.y -= speed;
+			cameraGameplay.y -= 2;
 		}
 		if (position.y - cameraGameplay.y > 470)
 		{
-			cameraGameplay.y += speed;
+			cameraGameplay.y += 2;
 		}
 	}
 
@@ -104,7 +104,7 @@ Update_Status ModulePlayer::Update()
 		jumponce = 1;
 		if (fallCD == 0)
 		{
-			fallCD = 20;
+			fallCD = 30;
 			fall = true;
 		}
 		
@@ -194,7 +194,7 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c2->type == Collider::Type::WALL)
 	{
-		App->player->position.y -= 2;
+		App->player->position.y -= 3;
 		jumponce = 0;
 	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
