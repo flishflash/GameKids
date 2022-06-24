@@ -1,1 +1,6 @@
-﻿LINK : fatal error LNK1201: error al escribir en la base de datos del programa 'C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Debug\Project_9_Solution.pdb'; compruebe si tiene suficiente espacio en disco, si la ruta es válida o si tiene privilegios suficientes
+﻿  ModulePlayer.cpp
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(54,19): warning C4244: 'inicializando': conversión de 'const float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\Animation.h(56,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModulePlayer.h(41,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Project_9_Solution\Source\ModuleInput.h(50,14): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+  Project_9_Solution.vcxproj -> C:\Users\lapiz\OneDrive\Documentos\Jueguito\GameKids\Project_9_Solution\Debug\Project_9_Solution.exe

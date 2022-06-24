@@ -76,6 +76,10 @@ public:
 	char scoreText[10] = { "\0" };
 
 	SDL_Rect cameraGameplay;
+
+	int jumponce;
+	bool fall;
+	int fallCD;
 };
 
 #endif //!__MODULE_PLAYER_H__

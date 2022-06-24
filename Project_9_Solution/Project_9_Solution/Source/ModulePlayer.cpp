@@ -15,26 +15,22 @@
 ModulePlayer::ModulePlayer(bool startEnabled) : Module(startEnabled)
 {
 
-<<<<<<< HEAD
 	fall = true;
 	fallCD = 20;
-	jumponce = 0;
-=======
-	cameraGameplay = { 135, 3800, RES_WIDTH, RES_HEIGHT };
->>>>>>> parent of 9557690 (jump)
+	jumponce = 1;
 
 	// idle animation - just one sprite
-	idleAnim.PushBack({ 66, 1, 32, 14 });
+	idleAnim.PushBack({ 0, 0, 70, 70 });
 
 	// move upwards
-	upAnim.PushBack({ 100, 1, 32, 14 });
-	upAnim.PushBack({ 132, 0, 32, 14 });
+	upAnim.PushBack({ 0, 0, 70, 70 });
+	upAnim.PushBack({ 0, 0, 70, 70 });
 	upAnim.loop = false;
 	upAnim.speed = 0.1f;
 
 	// Move down
-	downAnim.PushBack({ 33, 1, 32, 14 });
-	downAnim.PushBack({ 0, 1, 32, 14 });
+	downAnim.PushBack({ 0, 0, 70, 70 });
+	downAnim.PushBack({ 0, 0, 70, 70 });
 	downAnim.loop = false;
 	downAnim.speed = 0.1f;
 }
@@ -63,7 +59,7 @@ bool ModulePlayer::Start()
 
 	destroyed = false;
 
-	collider = App->collisions->AddCollider({ position.x, position.y, 32, 16 }, Collider::Type::PLAYER, this);
+	collider = App->collisions->AddCollider({ position.x, position.y, 70, 70 }, Collider::Type::PLAYER, this);
 
 	// TODO 0: Notice how a font is loaded and the meaning of all its arguments 
 	//char lookupTable[] = { "!  ,_./0123456789$;<&?abcdefghijklmnopqrstuvwxyz" };
@@ -79,9 +75,10 @@ bool ModulePlayer::Start()
 Update_Status ModulePlayer::Update()
 {
 	// Moving the player with the camera scroll
-<<<<<<< HEAD
+
 	if(fall)
 		App->player->position.y += 2;
+
 	if (App->player->position.x > 500)
 	{
 		if (position.x - cameraGameplay.x < 500)
@@ -95,6 +92,10 @@ Update_Status ModulePlayer::Update()
 		if (position.y - cameraGameplay.y < 240)
 		{
 			cameraGameplay.y -= speed;
+		}
+		if (position.y - cameraGameplay.y > 470)
+		{
+			cameraGameplay.y += speed;
 		}
 	}
 
@@ -110,10 +111,6 @@ Update_Status ModulePlayer::Update()
 		App->player->position.y -= 2;
 		fallCD--;
 	}
-
-=======
-	App->player->position.y += 1;
->>>>>>> parent of 9557690 (jump)
 
 	if (App->input->keys[SDL_SCANCODE_A] == Key_State::KEY_REPEAT)
 	{
@@ -137,12 +134,8 @@ Update_Status ModulePlayer::Update()
 
 	if (App->input->keys[SDL_SCANCODE_W] == Key_State::KEY_REPEAT)
 	{
-		position.y -= speed;
-		if (currentAnimation != &upAnim)
-		{
-			upAnim.Reset();
-			currentAnimation = &upAnim;
-		}
+		if(jumponce==0)
+			fall = false;
 	}
 
 	if (App->input->keys[SDL_SCANCODE_SPACE] == Key_State::KEY_DOWN)
@@ -201,7 +194,8 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 
 	if (c2->type == Collider::Type::WALL)
 	{
-		App->player->position.y -= 1;
+		App->player->position.y -= 2;
+		jumponce = 0;
 	}
 	if (c1->type == Collider::Type::PLAYER_SHOT && c2->type == Collider::Type::ENEMY)
 	{
